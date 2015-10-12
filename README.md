@@ -4,7 +4,7 @@ A simple CLI for file bkup command.
 ## Installation
 
 ```
-npm install -g node-bkup
+$ npm install -g node-bkup
 ```
 
 ## Usage
