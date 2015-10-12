@@ -1,6 +1,6 @@
 {
   "name": "node-bkup",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "NPM CLI for file backup command",
   "bin": {
     "bkup": "index.js"
