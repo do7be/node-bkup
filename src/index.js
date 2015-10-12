@@ -8,7 +8,7 @@ const exec = require('child_process').exec;
 // not enough args
 if (process.argv.length <= 2) {
   console.log("Usage: bkup file");
-  console.log("so create file.YYYYMMDD");
+  console.log("then create file.YYYYMMDD");
   process.exit();
 }
 
