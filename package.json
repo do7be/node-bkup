@@ -1,12 +1,12 @@
 {
   "name": "node-bkup",
-  "version": "0.0.1",
+  "version": "0.9.0",
   "description": "NPM CLI for file backup command",
   "bin": {
     "bkup": "index.js"
   },
   "scripts": {
-    "start"  : "babel src/index.js -o index.js"
+    "start": "babel src/index.js -o index.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/do7be/node-bkup#readme",
   "dependencies": {
+    "commander": "^2.9.0",
     "date-utils": "^1.2.17"
   },
   "devDependencies": {

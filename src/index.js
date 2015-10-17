@@ -3,28 +3,49 @@
 'use strict';
 
 require('date-utils');
-const exec = require('child_process').exec;
+const exec    = require('child_process').exec;
+const program = require('commander');
 
-// not enough args
-if (process.argv.length <= 2) {
-  console.log("Usage: bkup file");
-  console.log("then create file.YYYYMMDD");
-  process.exit();
+// set program info
+program
+  .version('0.9.0')
+  .usage('[options] <fileName>\n         then create fileName.YYYYMMDD')
+  .option('-o, --org', 'create fileName.org')
+  .option('-b, --bak', 'create fileName.bak')
+  .option('-d, --detail', 'create fileName.YYYYMMDDHHmmss')
+  .parse(process.argv);
+
+// display HELP
+if(!program.args.length) {
+  program.help();
 }
 
+// options
+let fileExtension;
 let dt = new Date();
-let formatted = dt.toFormat("YYYYMMDD");
+if (program.org) {
+  fileExtension = 'org';
+}
+else if (program.bak) {
+  fileExtension = 'bak';
+}
+else if (program.detail) {
+  fileExtension = dt.toFormat("YYYYMMDDHH24MISS");
+}
+else {
+  fileExtension = dt.toFormat("YYYYMMDD");
+}
 
 // file name for copy
-let fileName         = process.argv[2];
-let fileNameWithDate = `${fileName}.${formatted}`;
+let fileName         = program.args;
+let backupFileName = `${fileName}.${fileExtension}`;
 
 // file backup at shell script
-exec(`cp -p ${fileName} ${fileNameWithDate}`, (err, stdout, stderr) => {
+exec(`cp -p ${fileName} ${backupFileName}`, (err, stdout, stderr) => {
   if(stderr.length > 0) {
     console.log(stderr);
   }
   else {
-    console.log(`created: ${fileNameWithDate}`);
+    console.log(`created: ${backupFileName}`);
   }
 });
