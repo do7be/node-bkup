@@ -10,16 +10,16 @@ $ npm install -g node-bkup
 ## Usage
 
 ```
-  Usage: bkup [options] <fileName>
-         then create fileName.YYYYMMDD
+Usage: bkup [options] <fileName>
+       then create fileName.YYYYMMDD
 
-  Options:
+Options:
 
-    -h, --help     output usage information
-    -V, --version  output the version number
-    -o, --org      create fileName.org
-    -b, --bak      create fileName.bak
-    -d, --detail   create fileName.YYYYMMDDHHmmss
+  -h, --help     output usage information
+  -V, --version  output the version number
+  -o, --org      create fileName.org
+  -b, --bak      create fileName.bak
+  -d, --detail   create fileName.YYYYMMDDHHmmss
 ```
 
 ## Example
