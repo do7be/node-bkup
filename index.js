@@ -8,7 +8,7 @@ var exec = require('child_process').exec;
 var program = require('commander');
 
 // set program info
-program.version('0.0.1').usage('[options] <fileName>\n         then create fileName.YYYYMMDD').option('-o, --org', 'create fileName.org').option('-b, --bak', 'create fileName.bak').option('-d, --detail', 'create fileName.YYYMMDDHHmmss').parse(process.argv);
+program.version('0.9.0').usage('[options] <fileName>\n         then create fileName.YYYYMMDD').option('-o, --org', 'create fileName.org').option('-b, --bak', 'create fileName.bak').option('-d, --detail', 'create fileName.YYYYMMDDHHmmss').parse(process.argv);
 
 // display HELP
 if (!program.args.length) {
@@ -23,9 +23,9 @@ if (program.org) {
 } else if (program.bak) {
   fileExtension = 'bak';
 } else if (program.detail) {
-  fileExtension = dt.toFormat("YYYYMMDD");
+  fileExtension = dt.toFormat("YYYYMMDDHH24MISS");
 } else {
-  fileExtension = dt.toFormat("YYYMMDDHH24MISS");
+  fileExtension = dt.toFormat("YYYYMMDD");
 }
 
 // file name for copy

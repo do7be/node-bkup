@@ -12,7 +12,7 @@ program
   .usage('[options] <fileName>\n         then create fileName.YYYYMMDD')
   .option('-o, --org', 'create fileName.org')
   .option('-b, --bak', 'create fileName.bak')
-  .option('-d, --detail', 'create fileName.YYYMMDDHHmmss')
+  .option('-d, --detail', 'create fileName.YYYYMMDDHHmmss')
   .parse(process.argv);
 
 // display HELP
@@ -30,10 +30,10 @@ else if (program.bak) {
   fileExtension = 'bak';
 }
 else if (program.detail) {
-  fileExtension = dt.toFormat("YYYYMMDD");
+  fileExtension = dt.toFormat("YYYYMMDDHH24MISS");
 }
 else {
-  fileExtension = dt.toFormat("YYYMMDDHH24MISS");
+  fileExtension = dt.toFormat("YYYYMMDD");
 }
 
 // file name for copy
