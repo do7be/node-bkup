@@ -8,7 +8,7 @@ const program = require('commander');
 
 // set program info
 program
-  .version('0.9.0')
+  .version('0.9.1')
   .usage('[options] <fileName>\n         then create fileName.YYYYMMDD')
   .option('-o, --org', 'create fileName.org')
   .option('-b, --bak', 'create fileName.bak')
